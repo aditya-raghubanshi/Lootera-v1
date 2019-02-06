@@ -3,9 +3,9 @@
 public class CameraAngle : MonoBehaviour
 {
     public float cameraDistOffsetx = 0f;
-    public float cameraDistOffsety = -30f;
-    public float cameraDistOffsetz = 60f;
-    public float rotX = 30f;
+    public float cameraDistOffsety = -15f;
+    public float cameraDistOffsetz = 15f;
+    public float rotX = 50f;
     public float rotY = 0f;
     public float rotZ = 0f;
 
