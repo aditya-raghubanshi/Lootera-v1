@@ -98,7 +98,7 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
-    agentHeight: 2
+    agentHeight: 2.25
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
@@ -14024,8 +14024,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
+  - {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
   - {fileID: 1902241384}
-  spawnTime: 3
+  spawnTime: 5
   SpawnRadius: 10
 --- !u!4 &509301008
 Transform:
@@ -43692,7 +43693,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1902241388
 MonoBehaviour:
@@ -43707,7 +43708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1902241387}
-  goal: {fileID: 2021634972}
+  visibleRadius: 20
   enemyHealth: 10
 --- !u!143 &1902241389
 CharacterController:

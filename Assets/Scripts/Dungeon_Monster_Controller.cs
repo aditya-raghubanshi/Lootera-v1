@@ -1,22 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody))]
 public class Dungeon_Monster_Controller : MonoBehaviour
 {
+    
     public NavMeshAgent agent;
-    public Transform goal;
     CharacterController controller;
     Animator anim;
     float attackRadius;
-    float visibleRadius = 20;
+    public float visibleRadius = 20;
     public int enemyHealth = 10;
+
+    public NavMeshAgent Agent { get => agent; set => agent = value; }
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        attackRadius = agent.stoppingDistance;
+        Agent = GetComponent<NavMeshAgent>();
+        Agent.updateRotation = false;
+        attackRadius = Agent.stoppingDistance;
         print("Dungeon Monster in Start");
        
     }
@@ -34,7 +40,7 @@ public class Dungeon_Monster_Controller : MonoBehaviour
             if(dist<attackRadius)
             {
                 print("Inside Attack");
-                Attack();
+                Attack(PlayerPosition);
             }
             // if he is out of visible radius. 
             else if(dist>visibleRadius)
@@ -58,7 +64,7 @@ public class Dungeon_Monster_Controller : MonoBehaviour
         if (dist<attackRadius)
         {
             
-            Attack();
+            Attack(PlayerPosition);
         }
         // if my health is 0; then die
       
@@ -67,21 +73,22 @@ public class Dungeon_Monster_Controller : MonoBehaviour
     void Walk(Vector3 PlayerPosition)
     {
 
+        this.transform.LookAt(PlayerPosition);
         anim.SetBool("running", true);
         anim.SetInteger("condition", 1);
         anim.SetBool("attacking", false);
-        agent.SetDestination(PlayerPosition);
-        this.transform.LookAt(PlayerPosition);
-        controller.Move(agent.desiredVelocity * Time.deltaTime);
+        Agent.SetDestination(PlayerPosition);
+        controller.Move(Agent.desiredVelocity * Time.deltaTime);
     }
-    void Attack()
+    void Attack(Vector3 PlayerPosition)
     {
+        this.transform.LookAt(PlayerPosition);
         print("Inside attack function");
         anim.SetBool("running", false);
         anim.SetInteger("condition", 2);
         anim.SetBool("attacking", true);
         controller.Move(Vector3.zero);
-        agent.SetDestination(Vector3.zero);
+        Agent.SetDestination(Vector3.zero);
     }
     void Idle()
     {
@@ -89,7 +96,7 @@ public class Dungeon_Monster_Controller : MonoBehaviour
         anim.SetInteger("condition", 0);
         anim.SetBool("attacking", false);
         controller.Move(Vector3.zero);
-        agent.SetDestination(Vector3.zero);
+        Agent.SetDestination(Vector3.zero);
     }
  
     //}
