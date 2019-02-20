@@ -7,12 +7,19 @@ public class EnemyManager : MonoBehaviour
     public GameObject [] enemies;                // The enemy prefab to be spawned.
     public float spawnTime = 3f;            // How long between each spawn.
     public float SpawnRadius = 10;
+    public int spawnNumber = 10;
 
     void Start()
     {
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
         
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+        // InvokeRepeating("Spawn", spawnTime, spawnTime);
+
+        for(int i = 0;i<spawnNumber;i++)
+        {
+            Spawn();
+        }
+
     }
 
 

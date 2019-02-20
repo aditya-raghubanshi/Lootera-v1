@@ -14027,7 +14027,8 @@ MonoBehaviour:
   - {fileID: 1300611964618398, guid: 0584839bceadb844fa31b1ca352056ba, type: 3}
   - {fileID: 1902241384}
   spawnTime: 3
-  SpawnRadius: 10
+  SpawnRadius: 100
+  spawnNumber: 15
 --- !u!4 &509301008
 Transform:
   m_ObjectHideFlags: 0
