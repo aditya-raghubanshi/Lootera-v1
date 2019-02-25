@@ -1,19 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMana : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int mana;
-    private int maxMana;
-    public PlayerMana(int mana)
+    private float mana;
+    private float maxMana;
+    Image manaBar;
+
+    void Start()
+    {
+        manaBar = GetComponent<Image>();
+    }
+    public PlayerMana(float mana = 100f)
     {
         this.mana = mana;
         this.maxMana = mana;
     }
 
-    public int Getmana()
+    public float Getmana()
     {
         return mana;
     }
@@ -25,6 +32,7 @@ public class PlayerMana : MonoBehaviour
         {
             mana = 0;
         }
+        manaBar.fillAmount = mana / maxMana;
     }
 
     public void Heal(int recoverAmount)
@@ -34,5 +42,6 @@ public class PlayerMana : MonoBehaviour
         {
             mana = maxMana;
         }
+        manaBar.fillAmount = mana / maxMana;
     }
 }
