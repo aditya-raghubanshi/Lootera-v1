@@ -13,7 +13,9 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         healthbar = GetComponent<Image>();
-        healthbar.fillAmount = 0.5f;
+        health = 100f;
+        maxHealth = 100f;
+        
     }
     public PlayerHealth(float health = 100f)
     {

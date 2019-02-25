@@ -8,12 +8,14 @@ public class EnemyManager : MonoBehaviour
     public float spawnTime = 3f;            // How long between each spawn.
     public float SpawnRadius = 10;
     public int spawnNumber = 10;
+    //private PlayerHealth health;
 
     void Start()
     {
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
-        
+
         // InvokeRepeating("Spawn", spawnTime, spawnTime);
+        //health = FindObjectOfType<PlayerHealth>();
 
         for(int i = 0;i<spawnNumber;i++)
         {

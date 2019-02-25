@@ -13,6 +13,7 @@ public class Dungeon_Monster_Controller : MonoBehaviour
     float attackRadius;
     public float visibleRadius = 20;
     public int enemyHealth = 10;
+    private PlayerHealth health;
 
     public NavMeshAgent Agent { get => agent; set => agent = value; }
 
@@ -24,6 +25,7 @@ public class Dungeon_Monster_Controller : MonoBehaviour
         Agent.updateRotation = false;
         attackRadius = Agent.stoppingDistance;
         print("Dungeon Monster in Start");
+        health = FindObjectOfType<PlayerHealth>();
        
     }
     public void Update()
@@ -65,6 +67,7 @@ public class Dungeon_Monster_Controller : MonoBehaviour
         {
             
             Attack(PlayerPosition);
+            health.Damage(10);
         }
         // if my health is 0; then die
       
@@ -87,8 +90,10 @@ public class Dungeon_Monster_Controller : MonoBehaviour
         anim.SetBool("running", false);
         anim.SetInteger("condition", 2);
         anim.SetBool("attacking", true);
+        
         controller.Move(Vector3.zero);
         Agent.SetDestination(Vector3.zero);
+        
     }
     void Idle()
     {
