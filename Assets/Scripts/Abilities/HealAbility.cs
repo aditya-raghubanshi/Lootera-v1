@@ -18,7 +18,7 @@ public class HealAbility : MonoBehaviour
 
     public void heal()
     {
-        if (mana.Getmana() == 0)
+        if (mana.Getmana() < manaUse)
         {
             //Not Enough Mana
             return ;
