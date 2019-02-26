@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Assets\Laterns and candles\scripts\CameraFacing.cs" />
     <Compile Include="Assets\Laterns and candles\scripts\ExtendedFlycam.cs" />
+    <Compile Include="Assets\Packages\BarShader_Simple\Scripts\DemoBarAnimator.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -69,12 +70,14 @@
     <Compile Include="Assets\Scripts\CountdownScript.cs" />
     <Compile Include="Assets\Scripts\Dungeon_Monster_Controller.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\HealAbility.cs" />
     <Compile Include="Assets\Scripts\HealthSystemController.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
     <Compile Include="Assets\Scripts\InteractionButton.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\PlayerMana.cs" />
+    <Compile Include="Assets\Scripts\TimerBars.cs" />
     <Compile Include="Assets\Scripts\TreasureChest.cs" />
     <Compile Include="Assets\Virtual Joystick Pack\Examples\2D Example\Player2DExample.cs" />
     <Compile Include="Assets\Virtual Joystick Pack\Examples\3D Example\Player3DExample.cs" />
@@ -83,6 +86,8 @@
     <Compile Include="Assets\Virtual Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Virtual Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <None Include="Assets\FreeDungeon\freeDungeon_ReadMe.txt" />
+    <None Include="Assets\Packages\BarShader_Simple\Shaders\SimpleBar.shader" />
+    <None Include="Assets\Packages\BarShader_Simple\Readme.txt" />
     <None Include="Assets\Crates And Barrels Pack Volume 1 - Free Version\manual.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">

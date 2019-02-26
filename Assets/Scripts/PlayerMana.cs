@@ -13,6 +13,8 @@ public class PlayerMana : MonoBehaviour
     void Start()
     {
         manaBar = GetComponent<Image>();
+        mana = 100f;
+        maxMana = 100f;
     }
     public PlayerMana(float mana = 100f)
     {

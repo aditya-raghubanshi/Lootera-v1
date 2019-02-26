@@ -46,4 +46,14 @@ public class CountdownScript : MonoBehaviour
     {
         //Load a new scene
     }
+
+    public float getTimer()
+    {
+        return timer;
+    }
+
+    public float getMaxTimer()
+    {
+        return mainTimer;
+    }
 }
