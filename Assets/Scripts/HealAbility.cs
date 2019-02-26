@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HealAbility : MonoBehaviour
 {
-    public int healAmount = 10;
-    public int manaUse = 20;
+    public float healAmount = 10;
+    public float manaUse = 20;
     private PlayerHealth health;
     private PlayerMana mana;
     // Start is called before the first frame update

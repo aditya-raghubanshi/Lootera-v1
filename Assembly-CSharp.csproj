@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\CameraAngle.cs" />
     <Compile Include="Assets\Scripts\CountdownScript.cs" />
     <Compile Include="Assets\Scripts\Dungeon_Monster_Controller.cs" />
+    <Compile Include="Assets\Scripts\EnemyDamage.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\HealAbility.cs" />
     <Compile Include="Assets\Scripts\HealthSystemController.cs" />

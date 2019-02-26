@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
         return health;
     }
 
-    public void Damage(int damageAmount)
+    public void Damage(float damageAmount)
     {
         health -= damageAmount;
 
@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         healthbar.fillAmount = health / maxHealth;
     }
 
-    public void Heal(int HealAmount)
+    public void Heal(float HealAmount)
     {
         health += HealAmount;
         if (health > maxHealth)

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(CharacterController))]
@@ -28,7 +29,7 @@ public class Dungeon_Monster_Controller : MonoBehaviour
         health = FindObjectOfType<PlayerHealth>();
        
     }
-    public void Update()
+    public void FixedUpdate()
     {
         Vector3 PlayerPosition = GameObject.Find("Player").transform.position;
         float dist = Vector3.Distance(transform.position, PlayerPosition);
@@ -67,7 +68,8 @@ public class Dungeon_Monster_Controller : MonoBehaviour
         {
             
             Attack(PlayerPosition);
-            health.Damage(10);
+            
+            //health.Damage(10);
         }
         // if my health is 0; then die
       
