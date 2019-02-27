@@ -9,14 +9,22 @@ public class PlayerHealth : MonoBehaviour
     private float health;
     private float maxHealth;
     private Image healthbar;
+    public float resistance;
 
     void Start()
     {
         healthbar = GetComponent<Image>();
         health = 100f;
         maxHealth = 100f;
+        resistance = 0f;
         
     }
+
+    public void setResistance(float res)
+    {
+        resistance = res;
+    }
+
     public PlayerHealth(float health = 100f)
     {
         this.health = health;
@@ -30,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Damage(float damageAmount)
     {
+        damageAmount -= damageAmount * resistance;
         health -= damageAmount;
 
         if (health < 0)

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using UnityEngine.UI;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(CharacterController))]
@@ -13,8 +14,10 @@ public class Dungeon_Monster_Controller : MonoBehaviour
     Animator anim;
     float attackRadius;
     public float visibleRadius = 20;
-    public int enemyHealth = 10;
+    public float enemyMaxHealth = 30f;
+    public float enemyHealth = 30f;
     private PlayerHealth health;
+    public Image healthBar;
 
     public NavMeshAgent Agent { get => agent; set => agent = value; }
 
@@ -25,7 +28,7 @@ public class Dungeon_Monster_Controller : MonoBehaviour
         Agent = GetComponent<NavMeshAgent>();
         Agent.updateRotation = false;
         attackRadius = Agent.stoppingDistance;
-        print("Dungeon Monster in Start");
+        //print("Dungeon Monster in Start");
         health = FindObjectOfType<PlayerHealth>();
        
     }
@@ -33,16 +36,16 @@ public class Dungeon_Monster_Controller : MonoBehaviour
     {
         Vector3 PlayerPosition = GameObject.Find("Player").transform.position;
         float dist = Vector3.Distance(transform.position, PlayerPosition);
-        print("distance " + dist);
+        //print("distance " + dist);
         // When are we walking? - when we can see him and we are not attacking;
         if(dist<visibleRadius)
         {
-            print("Inside Visible Radius");
+            //print("Inside Visible Radius");
             // when to stop walking when we are walking.
             // if we are in attack radius 
             if(dist<attackRadius)
             {
-                print("Inside Attack");
+                //print("Inside Attack");
                 Attack(PlayerPosition);
             }
             // if he is out of visible radius. 
@@ -54,6 +57,7 @@ public class Dungeon_Monster_Controller : MonoBehaviour
             {
                 Walk(PlayerPosition);
             }
+            healthBar.fillAmount = enemyHealth / enemyMaxHealth;
             
         }
         // When to become Idle - don`t really care which state we are in, if he is out of range just stop.
@@ -88,7 +92,7 @@ public class Dungeon_Monster_Controller : MonoBehaviour
     void Attack(Vector3 PlayerPosition)
     {
         this.transform.LookAt(PlayerPosition);
-        print("Inside attack function");
+        //print("Inside attack function");
         anim.SetBool("running", false);
         anim.SetInteger("condition", 2);
         anim.SetBool("attacking", true);
@@ -106,5 +110,18 @@ public class Dungeon_Monster_Controller : MonoBehaviour
         Agent.SetDestination(Vector3.zero);
     }
  
+    public void Damage(float damage)
+    {
+        enemyHealth = enemyHealth - damage;
+        if (enemyHealth <= 0f)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public float getHealth()
+    {
+        return enemyHealth;
+    }
     //}
 }

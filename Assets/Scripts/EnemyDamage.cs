@@ -10,5 +10,6 @@ public class EnemyDamage : MonoBehaviour
     {
         health = FindObjectOfType<PlayerHealth>();
         health.Damage(dmgAmount);
+        
     }
 }

@@ -37,8 +37,11 @@ public class Movement : MonoBehaviour
             verticalMovement = 0f;
 
         Vector3 movement = new Vector3(horizontalMovement, 0.0f, verticalMovement);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), rotsens);
-        transform.Translate(movement * movSpeed * Time.deltaTime, Space.World);
+        if (movement != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), rotsens);
+            transform.Translate(movement * movSpeed * Time.deltaTime, Space.World);
+        }
         if (horizontalMovement != 0 || verticalMovement != 0)
         {
             animate.SetFloat("Forward", 1f, 0f, Time.deltaTime);
